@@ -1,11 +1,22 @@
+import java.math.BigDecimal;
+
 public class Categoria {
     private int idCategoria;
     private String nomeCategoria;
-    private double porcentagemMeta;
+    private BigDecimal porcentagemMeta;
 
-    // Construtor completo (para ler do banco)
-    public Categoria(int idCategoria, String nomeCategoria, double porcentagemMeta) {
+    // Construtor padrão
+    public Categoria() {}
+
+    // Construtor completo para quando puxarmos dados do banco
+    public Categoria(int idCategoria, String nomeCategoria, BigDecimal porcentagemMeta) {
         this.idCategoria = idCategoria;
+        this.nomeCategoria = nomeCategoria;
+        this.porcentagemMeta = porcentagemMeta;
+    }
+
+    // Construtor sem ID (ideal para novos cadastros)
+    public Categoria(String nomeCategoria, BigDecimal porcentagemMeta) {
         this.nomeCategoria = nomeCategoria;
         this.porcentagemMeta = porcentagemMeta;
     }
@@ -27,11 +38,16 @@ public class Categoria {
         this.nomeCategoria = nomeCategoria;
     }
 
-    public double getPorcentagemMeta() {
+    public BigDecimal getPorcentagemMeta() {
         return porcentagemMeta;
     }
 
-    public void setPorcentagemMeta(double porcentagemMeta) {
-        this.porcentagemMeta = porcentagemMeta;
+    public void setPorcentagemMeta(BigDecimal porcentagemMeta) {
+        // Validação básica opcional: garante que a porcentagem não seja negativa
+        if (porcentagemMeta != null && porcentagemMeta.compareTo(BigDecimal.ZERO) >= 0) {
+            this.porcentagemMeta = porcentagemMeta;
+        } else {
+            System.out.println("Erro: A porcentagem da meta não pode ser negativa!");
+        }
     }
 }

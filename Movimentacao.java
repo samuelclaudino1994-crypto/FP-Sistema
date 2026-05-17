@@ -1,18 +1,19 @@
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Movimentacao {
     private int idMovimentacoes;
     private String descricao;
-    private double valor;
+    private BigDecimal valor; // Alterado para BigDecimal para precisão total
     private char tipo; // 'D' para despesa, 'G' para ganho
     private LocalDate dataMovimentacao;
     
-    // Associações diretas com as outras classes (igual às Chaves Estrangeiras do seu banco)
+    // Associações diretas com as outras classes (Chaves Estrangeiras)
     private Usuario usuario;
     private Categoria categoria;
 
-    // Construtor completo
-    public Movimentacao(int idMovimentacoes, String descricao, double valor, char tipo, 
+    // Construtor completo (para ler do banco)
+    public Movimentacao(int idMovimentacoes, String descricao, BigDecimal valor, char tipo, 
                         LocalDate dataMovimentacao, Usuario usuario, Categoria categoria) {
         this.idMovimentacoes = idMovimentacoes;
         this.descricao = descricao;
@@ -24,7 +25,7 @@ public class Movimentacao {
     }
 
     // Construtor sem ID (útil para novos cadastros de despesas)
-    public Movimentacao(String descricao, double valor, char tipo, 
+    public Movimentacao(String descricao, BigDecimal valor, char tipo, 
                         LocalDate dataMovimentacao, Usuario usuario, Categoria categoria) {
         this.descricao = descricao;
         this.valor = valor;
@@ -51,12 +52,17 @@ public class Movimentacao {
         this.descricao = descricao;
     }
 
-    public double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setValor(BigDecimal valor) {
+        // Validação: Garante que o valor da movimentação seja positivo
+        if (valor != null && valor.compareTo(BigDecimal.ZERO) >= 0) {
+            this.valor = valor;
+        } else {
+            System.out.println("Erro: O valor da movimentação deve ser maior que zero!");
+        }
     }
 
     public char getTipo() {
@@ -64,7 +70,12 @@ public class Movimentacao {
     }
 
     public void setTipo(char tipo) {
-        this.tipo = tipo;
+        // Validação: Aceita apenas 'D' (Despesa) ou 'G' (Ganho)
+        if (tipo == 'D' || tipo == 'G') {
+            this.tipo = tipo;
+        } else {
+            System.out.println("Erro: Tipo inválido! Use 'D' para Despesa ou 'G' para Ganho.");
+        }
     }
 
     public LocalDate getDataMovimentacao() {
