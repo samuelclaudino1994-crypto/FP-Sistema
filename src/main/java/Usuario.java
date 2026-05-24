@@ -1,3 +1,4 @@
+
 import java.math.BigDecimal;
 
 public class Usuario {
@@ -62,12 +63,13 @@ public class Usuario {
     }
 
     public void setSalario(BigDecimal salario) {
-        // compareTo retorna: -1 se for menor, 0 se for igual, 1 se for maior
-        // Se salario for maior ou igual a ZERO (>= 0)
-        if (salario != null && salario.compareTo(BigDecimal.ZERO) >= 0) {
-            this.salario = salario;
-        } else {
-            System.out.println("Erro: O salário não pode ser negativo!");
-        }
+
+    if (salario == null || salario.compareTo(BigDecimal.ZERO) < 0) {
+        throw new IllegalArgumentException(
+            "O salário não pode ser negativo."
+        );
+    }
+
+    this.salario = salario;
     }
 }

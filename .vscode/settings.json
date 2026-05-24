@@ -1,6 +1,15 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "c:\\Projetos\\postgresql-42.7.3.jar"
-    ]
+        "c:\\Projetos\\postgresql-42.7.3.jar",
+        "c:\\Java\\javafx-sdk-21.0.2\\lib\\javafx.base.jar",
+        "c:\\Java\\javafx-sdk-21.0.2\\lib\\javafx.controls.jar",
+        "c:\\Java\\javafx-sdk-21.0.2\\lib\\javafx.fxml.jar",
+        "c:\\Java\\javafx-sdk-21.0.2\\lib\\javafx.graphics.jar",
+        "c:\\Java\\javafx-sdk-21.0.2\\lib\\javafx.media.jar",
+        "c:\\Java\\javafx-sdk-21.0.2\\lib\\javafx.swing.jar",
+        "c:\\Java\\javafx-sdk-21.0.2\\lib\\javafx.web.jar",
+        "c:\\Java\\javafx-sdk-21.0.2\\lib\\javafx-swt.jar"
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
