@@ -1,47 +1,218 @@
-# FP-Sistema 💰📊
+# 💰 FP Finanças
 
-O **FP-Sistema** é uma aplicação backend desenvolvida em Java com foco no gerenciamento de finanças pessoais e inteligência financeira. O objetivo principal do sistema é auxiliar o usuário a organizar sua vida financeira e planejar a conquista da sua liberdade financeira através da distribuição automatizada de renda.
+Sistema de gerenciamento financeiro pessoal desenvolvido em Java com foco em inteligência financeira preventiva, organização orçamentária e arquitetura desacoplada.
 
----
-
-## 🚀 Funcionalidades Principais (Regras de Negócio)
-
-* **Definição de Perfil Financeiro:** Estruturação da lógica para receber os dados de receita do usuário.
-* **Cálculo Automatizado de Orçamento:** Ao processar o salário ou receita, o sistema calcula e distribui automaticamente os valores com base em pilares financeiros essenciais (Regra de base recomendada para saúde financeira).
-    * 📌 **Despesas Fixas** (Essenciais)
-    * 🎉 **Diversão / Estilo de Vida**
-    * 🏦 **Reserva de Emergência / Investimentos**
-* **Arquitetura Backend Preparada:** Código estruturado para receber integração com banco de dados relacional (PostgreSQL).
+O projeto foi concebido aplicando conceitos de engenharia de software, separação em camadas, persistência em nuvem e regras automatizadas de saúde financeira.
 
 ---
 
-## 🛠️ Tecnologias e Ferramentas Utilizadas
+# 🚀 Objetivo do Projeto
 
-* **Linguagem:** Java (Lógica de Programação e Programação Orientada a Objetos)
-* **Persistência:** JDBC (Java Database Connectivity)
-* **Banco de Dados:** PostgreSQL (Persistência e modelagem de dados relacionais)
-* **Arquitetura:** Padrão em Camadas (DAO - Data Access Object e Service) para separação de responsabilidades e organização do código.
-* **Ambiente de Desenvolvimento:** VS Code
+O FP Finanças não atua apenas como um histórico de gastos tradicional.
 
----
+A proposta do sistema é auxiliar o usuário na tomada de decisões financeiras através de:
 
-## 🏗️ Arquitetura do Projeto
-
-O projeto foi estruturado seguindo boas práticas de desenvolvimento backend, garantindo que a lógica de negócio fique totalmente isolada das futuras interfaces:
-
-1.  **Model:** Representação das entidades do sistema (Usuário, Finanças, etc.).
-2.  **DAO (Data Access Object):** Camada responsável direta pelas instruções SQL e comunicação com o PostgreSQL.
-3.  **Service:** Camada onde residem as regras de negócio lógicas (como o cálculo automatizado das porcentagens do orçamento).
+- distribuição automatizada de orçamento;
+- monitoramento preventivo de gastos;
+- alertas financeiros inteligentes;
+- organização patrimonial;
+- metas de economia.
 
 ---
 
-## 📈 Status do Desenvolvimento
+# 🧠 Diferencial do Sistema
 
-* **Regras de Negócio / Backend:** 🔄 Quase 100% concluído (focado na lógica de distribuição e persistência).
-* **Interface com o Usuário:** ⏳ Próxima etapa do cronograma de desenvolvimento.
+O núcleo do projeto utiliza uma lógica automatizada baseada no método financeiro:
+
+```text
+55% → Gastos Essenciais
+25% → Estilo de Vida / Lazer
+20% → Reserva Financeira
+```
+
+O sistema monitora continuamente os gastos do usuário e dispara alertas preventivos quando os limites começam a ser atingidos.
+
+Exemplo:
+
+```text
+⚠ Atenção: Você atingiu 80% do limite da categoria “Lazer”.
+```
 
 ---
 
-## ✒️ Autor
+# 🛠️ Stack Tecnológica
 
-* **Samuel de Moura Claudino** - [LinkedIn](https://www.linkedin.com/in/samuel-de-moura-claudino-779642101) | [GitHub](https://github.com/samuelclaudino1994-crypto)
+| Camada | Tecnologia |
+|---|---|
+| Linguagem | Java 25 |
+| Build Tool | Maven |
+| Banco de Dados | PostgreSQL |
+| Backend Cloud | Supabase |
+| Persistência | JDBC |
+| Testes | JUnit 5 |
+| Versionamento | Git/GitHub |
+| Interface | JavaFX (planejado) |
+
+---
+
+# 🏗️ Arquitetura do Projeto
+
+O sistema foi estruturado seguindo arquitetura desacoplada em camadas:
+
+```text
+[ View / Controller ]
+          ↓
+[ Service ]
+          ↓
+[ DAO / Repository ]
+          ↓
+[ PostgreSQL / Supabase ]
+```
+
+---
+
+# 📂 Estrutura do Projeto
+
+```text
+FP-Financas/
+├── docs/
+├── src/
+│   ├── model/
+│   ├── service/
+│   ├── repository/
+│   ├── controller/
+│   ├── view/
+│   └── util/
+├── tests/
+├── pom.xml
+├── README.md
+└── .gitignore
+```
+
+---
+
+# 📌 Funcionalidades Implementadas
+
+## ✅ Core Financeiro
+
+- Cadastro de usuários
+- Controle de categorias
+- Registro de receitas e despesas
+- Cálculo automático de orçamento
+- Consolidação de saldo
+- Regras de divisão financeira
+- Persistência integrada ao banco
+- Blindagem de entradas
+
+---
+
+# 🔐 Segurança e Validação
+
+O projeto implementa:
+
+- validação de entradas;
+- encapsulamento;
+- proteção contra valores inválidos;
+- arquitetura desacoplada;
+- persistência segura;
+- Row-Level Security (RLS);
+- criptografia de senhas (planejado).
+
+---
+
+# 🧪 Testes Automatizados
+
+As regras críticas da aplicação são validadas utilizando:
+
+```text
+JUnit 5
+```
+
+Os testes garantem:
+- integridade dos cálculos financeiros;
+- estabilidade das regras de negócio;
+- segurança em futuras refatorações.
+
+---
+
+# ▶️ Como Executar o Projeto
+
+## 1️⃣ Clone o repositório
+
+```bash
+git clone https://github.com/seu-usuario/fp-financas.git
+```
+
+---
+
+## 2️⃣ Acesse a pasta do projeto
+
+```bash
+cd FP-Financas
+```
+
+---
+
+## 3️⃣ Compile utilizando Maven
+
+```bash
+mvn clean install
+```
+
+---
+
+## 4️⃣ Execute os testes
+
+```bash
+mvn test
+```
+
+---
+
+# 📚 Documentação Técnica
+
+A documentação detalhada do projeto está disponível na pasta:
+
+```text
+/docs
+```
+
+Incluindo:
+- arquitetura;
+- requisitos funcionais;
+- regras de negócio;
+- modelagem;
+- evolução técnica.
+
+---
+
+# 📈 Status do Projeto
+
+| Etapa | Status |
+|---|---|
+| Core Financeiro | ✅ Em desenvolvimento |
+| Persistência Supabase | ✅ Implementado |
+| Regras Financeiras | ✅ Implementadas |
+| Testes Automatizados | ✅ Parcial |
+| Interface Desktop | ⏳ Próxima etapa |
+| Migração Web | 🔮 Futuro |
+
+---
+
+# 👨‍💻 Autor
+
+Samuel de Moura Claudino
+
+## 🔗 Links
+
+- GitHub:
+  https://github.com/samuelclaudino1994-crypto
+
+- LinkedIn:
+  https://www.linkedin.com/in/samuel-de-moura-claudino-779642101
+
+---
+
+# 📜 Licença
+
+Projeto desenvolvido para fins educacionais, evolução técnica e portfólio profissional.
